@@ -61,9 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\ObservedObject.cs" />
+    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Model\CurrencyCalculator.cs" />
     <Compile Include="Model\CurrencyRoot.cs" />
-    <Compile Include="Model\GetCurrency.cs" />
-    <Compile Include="Model\Rate.cs" />
+    <Compile Include="DAL\GetCurrency.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -109,8 +111,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

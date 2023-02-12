@@ -9,10 +9,13 @@ namespace CurrencyConventer.Model
         public long TimeStamp { get; set; }
 
 
-        public CurrencyRoot()
+
+        public double Calc(double fromRate,double toRate,double value)
         {
 
+            return (value/ fromRate)* toRate;
         }
+
 
        
     }

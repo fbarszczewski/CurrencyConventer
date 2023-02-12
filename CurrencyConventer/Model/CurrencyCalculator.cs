@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace CurrencyConventer.Model
 {
-    internal class Rate
+    public static class CurrencyCalculator
     {
-        public double USD { get; set; }
-        public double PLN { get; set; }
-        public double EUR { get; set; }
+
+        public static double Calc()
+        {
+
+            return 0;
+        }
+
     }
 }

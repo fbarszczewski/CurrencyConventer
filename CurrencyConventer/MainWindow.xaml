@@ -63,7 +63,7 @@
                    VerticalContentAlignment="Center"  
                    FontSize="20"/>
 
-            <Label Name="lblCurrency" 
+            <Label Content="{Binding ConvertedValue}"
                    Height="40" Width="1000" 
                    HorizontalContentAlignment="Center" 
                    VerticalContentAlignment="Center" 
@@ -103,68 +103,73 @@
         
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="90" Width="800" VerticalAlignment="Bottom">
 
-            <TextBox Name="txtCurrency" 
+            <TextBox Text="{Binding EnteredValue}"
+                     Name="txtCurrency" 
                      Width="200" Height="30" 
                      Margin="40 0 0 0" 
-                     PreviewTextInput="txtCurrency_PreviewTextInput" 
                      FontSize="18" 
                      VerticalContentAlignment="Center" 
                      VerticalAlignment="Top"/>
 
-            <ComboBox Name="cmbFromCurrency" 
+            <ComboBox ItemsSource="{Binding Rates, Mode=OneWay}"
+                      DisplayMemberPath="Key" 
+                      SelectedValue="{Binding SelectedFromRate, Mode=OneWayToSource}"
+                      SelectedValuePath="Value"
                       Width="170" Height="30" 
                       Margin="60 0 40 0" 
                       FontSize="18" 
                       VerticalContentAlignment="Center" 
                       VerticalAlignment="Top" 
-                      MaxDropDownHeight="150"
-                      ItemsSource="{Binding Rates}">
+                      MaxDropDownHeight="250"/>
 
-                <!--<ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Rates}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>-->
-                
-            </ComboBox>
 
-            <ComboBox Width="170" Height="30" 
+            <ComboBox ItemsSource="{Binding Rates, Mode=OneWay}"
+                      DisplayMemberPath="Key" 
+                      SelectedValue="{Binding SelectedToRate, Mode=OneWayToSource}"
+                      SelectedValuePath="Value"
+                      Width="170" Height="30" 
                       Margin="40 0 0 0" 
                       FontSize="18" 
                       VerticalContentAlignment="Center" 
                       VerticalAlignment="Top" 
-                      MaxDropDownHeight="150"
-                      />
+                      MaxDropDownHeight="250"/>
             
         </StackPanel>
         
         <StackPanel Grid.Row="3" Height="100" Width="1000" Orientation="Horizontal">
 
-            <Button Name="Convert" 
+            
+            <Button Command="{Binding ConvertCommand}"
+                    Margin="325,0,20,0"
                     Height="40" Width="150" 
                     Content="Convert" 
                     Click="Convert_Click" 
-                    Margin="350 0 20 0" 
-                    Foreground="White" 
-                    FontSize="20" 
-                    Style="{StaticResource ButtonRound}"
-                    />
-
-
-
-            <Button Name="Clear" 
-                    Height="40" Width="150" 
-                    Content="Clear" 
-                    Click="Clear_Click" 
                     Foreground="White" 
                     FontSize="20" 
                     Style="{StaticResource ButtonRound}"/>
 
 
+            <Button Command="{Binding ClearCommand}"
+                    Margin="20,0,20,0"
+                    Height="40" Width="150" 
+                    Content="Clear" 
+                    Foreground="White" 
+                    FontSize="20" 
+                    Style="{StaticResource ButtonRound}"/>
+
         </StackPanel>
-        
 
+        <StackPanel Grid.Row="4">
+            <Label Content="Time of rates:"
+               Height="40" Width="1000" 
+                   HorizontalContentAlignment="Center" 
+                   FontSize="20"/>
+            <Label Content="{Binding LastUpdate}"
+                   Height="40" Width="1000" 
+                   HorizontalContentAlignment="Center" 
+                   FontSize="20"/>
 
+        </StackPanel>
 
     </Grid>
 </Window>
