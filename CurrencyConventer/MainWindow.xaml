@@ -4,10 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyConventer"
-        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:vm="clr-namespace:CurrencyConventer.ViewModel"
         mc:Ignorable="d"
-        Title="Currency Converter" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" >
+        Title="Currency Converter" 
+        SizeToContent="WidthAndHeight" 
+        WindowStartupLocation="CenterScreen" >
+    
+    
     <Grid>
+        <Grid.DataContext>
+            <vm:MainViewModel/>
+        </Grid.DataContext>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="80"></RowDefinition>
@@ -109,15 +117,16 @@
                       FontSize="18" 
                       VerticalContentAlignment="Center" 
                       VerticalAlignment="Top" 
-                      MaxDropDownHeight="150"/>
+                      MaxDropDownHeight="150"
+                      ItemsSource="{Binding Currency}"/>
 
-            <ComboBox Name="cmbToCurrency" 
-                      Width="170" Height="30" 
+            <ComboBox Width="170" Height="30" 
                       Margin="40 0 0 0" 
                       FontSize="18" 
                       VerticalContentAlignment="Center" 
                       VerticalAlignment="Top" 
-                      MaxDropDownHeight="150"/>
+                      MaxDropDownHeight="150"
+                      ItemsSource="{Binding Currency}"/>
             
         </StackPanel>
         
