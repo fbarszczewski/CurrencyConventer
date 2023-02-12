@@ -24,5 +24,20 @@ namespace CurrencyConventer
         {
             InitializeComponent();
         }
+
+        private void Convert_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtCurrency_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
     }
 }
