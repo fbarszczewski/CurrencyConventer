@@ -67,7 +67,7 @@
                    Height="40" Width="1000" 
                    HorizontalContentAlignment="Center" 
                    VerticalContentAlignment="Center" 
-                   FontSize="20"/>
+                   FontSize="26"/>
             
         </StackPanel>
         
