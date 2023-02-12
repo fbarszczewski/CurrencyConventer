@@ -122,26 +122,28 @@
         </StackPanel>
         
         <StackPanel Grid.Row="3" Height="100" Width="1000" Orientation="Horizontal">
-            
-            <Button Name="Convert" Height="40" Width="150" Content="Convert" Click="Convert_Click" Margin="350 0 20 0" Foreground="White" FontSize="20" 
-                    Style="{StaticResource ButtonRound}">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#ec2075" Offset="0.0"/>
-                        <GradientStop Color="#f33944" Offset="0.5"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            
-            <Button Name="Clear" Height="40" Width="150" Content="Clear" Click="Clear_Click" Foreground="White" FontSize="20" 
-                    Style="{StaticResource ButtonRound}">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#ec2075" Offset="0.0"/>
-                        <GradientStop Color="#f33944" Offset="0.5"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+
+            <Button Name="Convert" 
+                    Height="40" Width="150" 
+                    Content="Convert" 
+                    Click="Convert_Click" 
+                    Margin="350 0 20 0" 
+                    Foreground="White" 
+                    FontSize="20" 
+                    Style="{StaticResource ButtonRound}"
+                    />
+
+
+
+            <Button Name="Clear" 
+                    Height="40" Width="150" 
+                    Content="Clear" 
+                    Click="Clear_Click" 
+                    Foreground="White" 
+                    FontSize="20" 
+                    Style="{StaticResource ButtonRound}"/>
+
+
         </StackPanel>
         
 

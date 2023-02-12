@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,12 @@ namespace CurrencyConventer
         {
             InitializeComponent();
         }
+
+        private void BindCurrency()
+        {
+            DataTable dtCurrency = new DataTable();
+        }
+
 
         private void Convert_Click(object sender, RoutedEventArgs e)
         {
