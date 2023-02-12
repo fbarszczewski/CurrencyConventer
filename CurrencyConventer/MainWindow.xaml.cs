@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyConventer.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace CurrencyConventer
         public MainWindow()
         {
             InitializeComponent();
+            GetCurrency currency=new GetCurrency();
         }
 
         private void BindCurrency()
