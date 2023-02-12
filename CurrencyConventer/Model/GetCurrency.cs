@@ -9,14 +9,13 @@ using System.Windows;
 
 namespace CurrencyConventer.Model
 {
-    internal class GetCurrency
+    internal  class GetCurrency
     {
         public CurrencyRoot CurrencyRates { get; set; }
 
         public GetCurrency()
         {
             CurrencyRates = new CurrencyRoot();
-            GetValue();
         }
 
         public static async Task<CurrencyRoot> GetData<T>(string url)
@@ -35,7 +34,7 @@ namespace CurrencyConventer.Model
                         var responceString = await responseMessage.Content.ReadAsStringAsync();
                         var responceObject = JsonConvert.DeserializeObject<CurrencyRoot>(responceString);
 
-                        MessageBox.Show("Timestamp: " + responceObject.TimeStamp, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Timestamp: " + responceObject.TimeStamp, "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         return responceObject;
                     }
@@ -49,9 +48,5 @@ namespace CurrencyConventer.Model
             }
         }
 
-        private async void GetValue()
-        {
-            CurrencyRates = await GetData<CurrencyRoot>("https://openexchangerates.org/api/latest.json?app_id=b720b5beb4c74bb2beb85f64352010cb");
-        }
     }
 }

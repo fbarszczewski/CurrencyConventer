@@ -25,7 +25,6 @@ namespace CurrencyConventer
         public MainWindow()
         {
             InitializeComponent();
-            GetCurrency currency=new GetCurrency();
         }
 
         private void BindCurrency()

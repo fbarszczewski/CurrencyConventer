@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyConventer.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace CurrencyConventer.ViewModel
 {
-    internal class MainViewModel : INotifyPropertyChanged   
+    internal class MainViewModel : INotifyPropertyChanged
     {
+        private Dictionary<string, double> rates;
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -19,13 +21,33 @@ namespace CurrencyConventer.ViewModel
                     PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
-        
-        
+
+
         public List<string> Currency { get; set; }
+        public CurrencyRoot CurrencyRates { get; set; }
+        public Dictionary<string, double> Rates 
+        { 
+            get => rates; 
+            set
+            {
+                rates = value;
+                OnPropertyChanged(nameof(Rates));
+            }
+            
+        }
+
+
 
         public MainViewModel()
         {
-            Currency = new List<string> { "PLN", "USD", "EUR" };
+            GetValue();
+        }
+
+        private async void GetValue()
+        {
+            CurrencyRates = await GetCurrency.GetData<CurrencyRoot>("https://openexchangerates.org/api/latest.json?app_id=b720b5beb4c74bb2beb85f64352010cb");
+
+            Rates = CurrencyRates.Rates;
         }
 
     }

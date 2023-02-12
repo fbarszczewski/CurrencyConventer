@@ -118,7 +118,15 @@
                       VerticalContentAlignment="Center" 
                       VerticalAlignment="Top" 
                       MaxDropDownHeight="150"
-                      ItemsSource="{Binding Currency}"/>
+                      ItemsSource="{Binding Rates}">
+
+                <!--<ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Rates}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>-->
+                
+            </ComboBox>
 
             <ComboBox Width="170" Height="30" 
                       Margin="40 0 0 0" 
@@ -126,7 +134,7 @@
                       VerticalContentAlignment="Center" 
                       VerticalAlignment="Top" 
                       MaxDropDownHeight="150"
-                      ItemsSource="{Binding Currency}"/>
+                      />
             
         </StackPanel>
         
