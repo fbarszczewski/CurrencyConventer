@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrencyConventer"
         xmlns:vm="clr-namespace:CurrencyConventer.ViewModel"
+        xmlns:core="clr-namespace:CurrencyConventer.Core"
         mc:Ignorable="d"
         Title="Currency Converter" 
         SizeToContent="WidthAndHeight" 
@@ -12,13 +13,17 @@
     
     
     <Grid>
+        <Grid.Resources>
+            <core:DoubleToStringConverter x:Key="DoubleToString"/>
+            <core:LongToDateConverter x:Key="LongToDate"/>
+        </Grid.Resources>
         <Grid.DataContext>
             <vm:MainViewModel/>
         </Grid.DataContext>
         
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
             <RowDefinition Height="150"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="150"></RowDefinition>
@@ -55,7 +60,7 @@
             
         </StackPanel>
         
-        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Height="80" Width="1000">
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Height="90" Width="1000">
 
             <Label Content="Converted Currency" 
                    Height="40" Width="1000" 
@@ -63,11 +68,11 @@
                    VerticalContentAlignment="Center"  
                    FontSize="20"/>
 
-            <Label Content="{Binding ConvertedValue}"
+            <Label Content="{Binding ConvertedValue,Converter={StaticResource DoubleToString}}"
                    Height="40" Width="1000" 
                    HorizontalContentAlignment="Center" 
                    VerticalContentAlignment="Center" 
-                   FontSize="26"/>
+                   FontSize="28"/>
             
         </StackPanel>
         
@@ -103,7 +108,7 @@
         
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Height="90" Width="800" VerticalAlignment="Bottom">
 
-            <TextBox Text="{Binding EnteredValue}"
+            <TextBox Text="{Binding EnteredValue,Converter={StaticResource DoubleToString}}"
                      Name="txtCurrency" 
                      Width="200" Height="30" 
                      Margin="40 0 0 0" 
@@ -160,11 +165,11 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4">
-            <Label Content="Time of rates:"
+            <Label Content="Last exchange rate update:"
                Height="40" Width="1000" 
                    HorizontalContentAlignment="Center" 
                    FontSize="20"/>
-            <Label Content="{Binding LastUpdate}"
+            <Label Content="{Binding LastUpdate, Converter={StaticResource LongToDate}}"
                    Height="40" Width="1000" 
                    HorizontalContentAlignment="Center" 
                    FontSize="20"/>

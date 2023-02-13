@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\Converters.cs" />
     <Compile Include="Core\ObservedObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Model\CurrencyCalculator.cs" />
