@@ -110,7 +110,7 @@ namespace CurrencyConventer.ViewModel
                 EnteredValue = 0;
                 Rates = null;
                 Rates = currencyRoot.Rates;
-            });
+            }, argument => enteredValue != 0 ||SelectedFromRate !=0||SelectedToRate!=0);
             }
         }
 
@@ -120,7 +120,9 @@ namespace CurrencyConventer.ViewModel
         }
         public ICommand ConvertCommand
         {
-            get => new RelayCommand(argument =>{ ConvertedValue = currencyRoot.Calc(SelectedFromRate, SelectedToRate, EnteredValue); });
+            get => new RelayCommand(
+                argument =>{ ConvertedValue = currencyRoot.Calc(SelectedFromRate, SelectedToRate, EnteredValue); },
+                argument => enteredValue!=0 && SelectedFromRate!=0 && SelectedToRate!=0);
         }
 
         private async void GetValues()

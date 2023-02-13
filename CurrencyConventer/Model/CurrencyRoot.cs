@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CurrencyConventer.Model
 {
@@ -13,7 +14,7 @@ namespace CurrencyConventer.Model
         public double Calc(double fromRate,double toRate,double value)
         {
 
-            return (value/ fromRate)* toRate;
+            return Math.Round((value / fromRate) * toRate,2);
         }
 
 
