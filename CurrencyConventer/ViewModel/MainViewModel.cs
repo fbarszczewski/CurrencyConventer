@@ -1,11 +1,7 @@
 ﻿using CurrencyConventer.Core;
 using CurrencyConventer.Model;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace CurrencyConventer.ViewModel
@@ -55,7 +51,7 @@ namespace CurrencyConventer.ViewModel
         }
         public double EnteredValue
         {
-            get { return enteredValue; }
+            get => enteredValue; 
             set
             {
                 enteredValue = value;
@@ -96,7 +92,6 @@ namespace CurrencyConventer.ViewModel
         public MainViewModel()
         {
             GetValues();
-
         }
 
 
@@ -104,13 +99,9 @@ namespace CurrencyConventer.ViewModel
         {
             get
             {
-                return new RelayCommand(argument =>
-            {
-                ConvertedValue = 0;
-                EnteredValue = 0;
-                Rates = null;
-                Rates = currencyRoot.Rates;
-            }, argument => enteredValue != 0 ||SelectedFromRate !=0||SelectedToRate!=0);
+                return new RelayCommand(
+                    argument =>{ConvertedValue = 0; EnteredValue = 0; Rates = null; Rates = currencyRoot.Rates;},
+                    argument => enteredValue != 0 ||SelectedFromRate !=0||SelectedToRate!=0);
             }
         }
 
