@@ -15,8 +15,6 @@
         </Setter>
 
 
-        
-
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -28,6 +26,17 @@
 
         <Style.Triggers>
 
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#FFC39CAC" Offset="0.0"/>
+                            <GradientStop Color="#FFDE8C90" Offset="0.5"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+
+            </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
